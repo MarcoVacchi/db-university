@@ -52,10 +52,24 @@ FROM
 
 ## 6. Selezionare tutti i corsi di laurea magistrale (38);
 
-
+SELECT 
+    *
+FROM
+    university.degrees
+    WHERE `level` = "magistrale";
 
 ## 7. Da quanti dipartimenti è composta l'università? (12);
+
+SELECT 
+COUNT(*)
+ FROM university.departments;
 
 
 
 ## 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50);
+
+SELECT 
+    COUNT(*)
+FROM
+    university.teachers
+    WHERE `phone` IS NULL;
