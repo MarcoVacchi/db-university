@@ -1,5 +1,6 @@
 # DB UNIVERSITY;
 
+# GIORNO UNO;
 
 ## 1. Selezionare tutti gli studenti nati nel 1990 (160);
 
@@ -73,3 +74,44 @@ SELECT
 FROM
     university.teachers
     WHERE `phone` IS NULL;
+
+
+# GIORNO DUE;
+
+# GROUP BY;
+
+## 1. Contare quanti iscritti ci sono stati ogni anno;
+
+SELECT 
+        COUNT(*), YEAR(enrolment_date) AS enroled_per_year
+    FROM
+        students
+    GROUP BY enroled_per_year;
+
+## 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio;
+
+SELECT 
+COUNT(*), `office_address`
+FROM university.teachers
+GROUP BY `office_address`;
+
+## 3. Calcolare la media dei voti di ogni appello d'esame;
+
+SELECT 
+    exam_id, AVG(vote) AS media_voti
+FROM
+    university.exam_student
+GROUP BY exam_id
+ORDER BY media_voti DESC;
+
+## 4. Contare quanti corsi di laurea ci sono per ogni dipartimento;
+
+SELECT 
+    department_id, 
+    COUNT(*) AS numero_corsi
+FROM 
+    university.degrees
+GROUP BY 
+    department_id;
+
+# INNER JOIN;
